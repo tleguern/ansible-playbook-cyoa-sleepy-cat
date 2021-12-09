@@ -1,0 +1,33 @@
+---
+- debug:
+    msg: "{{ chapters[current]['msg'] }}"
+
+- set_fact:
+    end: yes
+  when: chapters[current]['choices'] is not defined
+
+
+- when: chapters[current]['choices'] is defined
+  block:
+    - pause:
+        prompt: "{{ chapters[current]['question'] }}"
+      register: choice
+
+    - name: Select next chapter.
+      set_fact:
+        next: "{{ choice.user_input }}"
+
+    - name: Error.
+      assert:
+        that: no
+        fail_msg: "This chapters[current] is not reachable from here. You can only access {{ chapters[current]['choices'] }}."
+      ignore_errors: yes
+      when: next not in chapters[current]['choices']
+
+    - name: Flip page.
+      set_fact:
+        current: "{{ next }}"
+      when: next in chapters[current]['choices']
+
+- include_tasks: cyoa-task.yml
+  when: not end

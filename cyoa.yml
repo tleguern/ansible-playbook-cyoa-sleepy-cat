@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    end: no
+    current: "intro"
+  tasks:
+    - include_vars: vars/cat.yml
+    - include_tasks: cyoa-task.yml

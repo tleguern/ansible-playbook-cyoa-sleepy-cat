@@ -1,0 +1,40 @@
+---
+chapters:
+  intro:
+    msg: |-
+      You are a small cat, lazily sleeping through the day in the most
+      relaxing way. It's been an hour already since the beginning of your nap
+      and an important question came to your mind.
+    choices: [ "left", "right", "as is" ]
+    question: "Should you roll to your [left] side, to your [right] side or stay [as is]?"
+  left:
+    msg: |-
+      You roll to your left side and pursue your intense napping. From time
+      to time you open an eye, just one, in order to check on your humans.
+      Sometimes they squeal annoyingly and touch you on the head. It is not
+      that you _don't_ like it but you don't like liking it. Except perhaps
+      when they use their ridiculous excuse for claws on the forehead, this is
+      actually quite good.
+
+      Anyway, there are no humans on sight, it is time to return back to
+      sleep.
+    question: "Type [end]."
+    choices: [ "end" ]
+  right:
+    msg: |-
+      You roll to your right side and pursue your intense napping. From time
+      to time you wake up for a good session of back stretching. It is
+      _really_ exhausting to nap with such intensity, clearly you need a rest.
+    question: "Type [end]."
+    choices: [ "end" ]
+  "as is":
+    msg: |-
+      You are already in the best possible position, why should you move a
+      muscle?
+    question: "Type [end]."
+    choices: [ "end" ]
+  end:
+    msg: |-
+      After some more time passes you wake up, get down from your place and
+      trot swiftly toward the humans' rest area. After a nap nothing beats a
+      good sleep.
